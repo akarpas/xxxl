@@ -6,7 +6,7 @@ import './App.css';
 
 
 const App = () => {
-  const [wishListName, setWishListName] = useState(null);
+  const [wishlistName, setWishListName] = useState(null);
   const [wishlists, setWishlists] = useState(DefaultWishlists);
 
   const onChange = event => {
@@ -20,12 +20,12 @@ const App = () => {
 
     if (pendingRequest) {
       const index = newWishlists.findIndex(wishlist => wishlist.id === -1);
-      newWishlists[index].name = wishListName;
+      newWishlists[index].name = wishlistName;
       setWishlists([...newWishlists]);
-      const data = await apiPatch([...newWishlists], wishListName);
+      const data = await apiPatch([...newWishlists], wishlistName);
       setWishlists(data);
     } else {
-      newWishlists.push({ id: -1, name: wishListName, products: [] })
+      newWishlists.push({ id: -1, name: wishlistName, products: [] })
       setWishlists([...newWishlists]);
       const data = await apiPost([...newWishlists]);
       setWishlists(data);
