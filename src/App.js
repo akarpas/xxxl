@@ -15,13 +15,16 @@ const App = () => {
 
   const addWishlist = async event => {
     event.preventDefault();
+    const newWishlists = [...wishlists];
     const pendingRequest = wishlists.findIndex(wishlist => wishlist.id === -1) !== -1;
 
     if (pendingRequest) {
-      const data = await apiPatch([...wishlists], wishListName);
+      const index = newWishlists.findIndex(wishlist => wishlist.id === -1);
+      newWishlists[index].name = wishListName;
+      setWishlists([...newWishlists]);
+      const data = await apiPatch([...newWishlists], wishListName);
       setWishlists(data);
     } else {
-      const newWishlists = [...wishlists];
       newWishlists.push({ id: -1, name: wishListName, products: [] })
       setWishlists([...newWishlists]);
       const data = await apiPost([...newWishlists]);
