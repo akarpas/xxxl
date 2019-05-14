@@ -6,11 +6,11 @@ import './App.css';
 
 
 const App = () => {
-  const [wishlistName, setWishListName] = useState(null);
+  const [wishlistName, setWishlistName] = useState(null);
   const [wishlists, setWishlists] = useState(DefaultWishlists);
 
   const onChange = event => {
-    setWishListName(event.target.value);
+    setWishlistName(event.target.value);
   }
 
   const addWishlist = async event => {
