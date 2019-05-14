@@ -6,8 +6,9 @@ import './App.css';
 
 
 const App = () => {
-  const [wishlistName, setWishlistName] = useState(null);
+  const [wishlistName, setWishlistName] = useState('');
   const [wishlists, setWishlists] = useState(DefaultWishlists);
+  const [loading, setLoading] = useState(false);
 
   const onChange = event => {
     setWishlistName(event.target.value);
@@ -17,6 +18,7 @@ const App = () => {
     event.preventDefault();
     const newWishlists = [...wishlists];
     const pendingRequest = wishlists.findIndex(wishlist => wishlist.id === -1) !== -1;
+    setLoading(true);
 
     if (pendingRequest) {
       const index = newWishlists.findIndex(wishlist => wishlist.id === -1);
@@ -24,11 +26,15 @@ const App = () => {
       setWishlists([...newWishlists]);
       const data = await apiPatch([...newWishlists], wishlistName);
       setWishlists(data);
+      setWishlistName('');
+      setLoading(false);
     } else {
       newWishlists.push({ id: -1, name: wishlistName, products: [] })
       setWishlists([...newWishlists]);
       const data = await apiPost([...newWishlists]);
       setWishlists(data);
+      setWishlistName('');
+      setLoading(false);
     }
   }
 
@@ -38,8 +44,9 @@ const App = () => {
         <h1>XXXL Wishlist</h1>
         <h3>Your Wishlists:</h3>
         <Wishlists wishlists={wishlists} />
+        {loading && <div>Updating your Wishlists</div>}
         <form onSubmit={addWishlist}>
-          <input type="text" minLength="2" onChange={onChange} />
+          <input value={wishlistName} type="text" minLength="2" onChange={onChange} />
           <button type="submit"> Add Wishlist </button>
         </form>
       </header>

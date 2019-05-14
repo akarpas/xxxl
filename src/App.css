@@ -24,8 +24,10 @@
 }
 
 ul {
+  padding-left: 0;
+  margin-left: 0;
   list-style: none;
-  text-align: left;
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
