@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DefaultWishlists from './data/defaultWishlists.json';
 import { apiPost, apiPatch } from './fake-api/api';
 import Wishlists from './Wishlists';
@@ -44,7 +44,7 @@ const App = () => {
         <h1>XXXL Wishlist</h1>
         <h3>Your Wishlists:</h3>
         <Wishlists wishlists={wishlists} />
-        {loading && <div>Updating your Wishlists</div>}
+        {loading && <div>- Updating your Wishlists -</div>}
         <form onSubmit={addWishlist}>
           <input value={wishlistName} type="text" minLength="2" onChange={onChange} />
           <button type="submit"> Add Wishlist </button>
