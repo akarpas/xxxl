@@ -10,17 +10,22 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 99vh;
+  padding-top: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
