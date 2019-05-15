@@ -26,14 +26,12 @@ const App = () => {
       setWishlists([...newWishlists]);
       const data = await apiPatch([...newWishlists], wishlistName);
       setWishlists(data);
-      setWishlistName('');
       setLoading(false);
     } else {
       newWishlists.push({ id: -1, name: wishlistName, products: [] })
       setWishlists([...newWishlists]);
       const data = await apiPost([...newWishlists]);
       setWishlists(data);
-      setWishlistName('');
       setLoading(false);
     }
   }
@@ -46,7 +44,7 @@ const App = () => {
         <Wishlists wishlists={wishlists} />
         {loading && <div>- Updating your Wishlists -</div>}
         <form onSubmit={addWishlist}>
-          <input value={wishlistName} type="text" minLength="2" onChange={onChange} />
+          <input type="text" minLength="2" onChange={onChange} />
           <button type="submit"> Add Wishlist </button>
         </form>
       </header>
