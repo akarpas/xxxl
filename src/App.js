@@ -18,6 +18,7 @@ const App = () => {
     event.preventDefault();
     // Copy the wishlists object and avoid mutating the original wishlists
     const newWishlists = [...wishlists];
+    // Check ig there is a pending request by checking the wishlist state for negative ids
     const pendingRequest = wishlists.findIndex(wishlist => wishlist.id === -1) !== -1;
     // Set loading to show on UI that server response is still pending
     setLoading(true);
