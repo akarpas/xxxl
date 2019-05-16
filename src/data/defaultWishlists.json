@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "house",
+    "products": ["california king bed", "white desk"]
+  },
+  {
+    "id": 2,
+    "name": "office",
+    "products": ["standing desk", "black leather chair"]
+  },
+  {
+    "id": 3,
+    "name": "random",
+    "products": ["bean bag", "shelf"]
+  }
+]
