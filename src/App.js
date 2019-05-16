@@ -40,7 +40,6 @@ const App = () => {
   //     setWishlists(updatedWishlists);
   //     setLoading(false);
   //   } else {
-  //     console.warn('PATCH A SAVED')
   //     await apiPatch(wishlist);
   //   }
   // }
