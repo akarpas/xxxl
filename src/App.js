@@ -41,6 +41,8 @@ const App = () => {
   }
 
 
+  // TO DO: replace wishlist list with inputs so that you can call
+  // PATCH and update the name of a wishlist
   return (
     <div className="App">
       <header className="App-header">
