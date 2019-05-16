@@ -16,10 +16,14 @@ const App = () => {
 
   const addWishlist = async event => {
     event.preventDefault();
+    // Copy the wishlists object and avoid mutating the original wishlists
     const newWishlists = [...wishlists];
     const pendingRequest = wishlists.findIndex(wishlist => wishlist.id === -1) !== -1;
+    // Set loading to show on UI that server response is still pending
     setLoading(true);
 
+    // We need to check if there is a pending request from the server
+    // in the case there is a pending request, then do a patch instead of a post
     if (pendingRequest) {
       const index = newWishlists.findIndex(wishlist => wishlist.id === -1);
       newWishlists[index].name = wishlistName;
@@ -35,6 +39,7 @@ const App = () => {
       setLoading(false);
     }
   }
+
 
   return (
     <div className="App">
