@@ -85,7 +85,7 @@ const App = () => {
     setWishlists(updatedWishlists)
     addOrUpdateWishlist({ id, name: value });
   }
-  console.warn(wishlists);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -100,11 +100,11 @@ const App = () => {
             )
           })}
         </ul>
-        {loading && <div>- Saving your Wishlists -</div>}
-        <form onSubmit={add}>
-          <input value={wishlistName} type="text" minLength="2" onChange={onChange} />
+        <form className="Form" onSubmit={add}>
+          <input value={wishlistName} required type="text" minLength="2" onChange={onChange} />
           <button type="submit"> Add Wishlist </button>
         </form>
+        {loading && <div>- Saving your Wishlists -</div>}
       </header>
     </div>
   );

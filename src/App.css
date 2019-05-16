@@ -1,3 +1,20 @@
+button {
+  outline: none;
+  border: none;
+  background-color: lightgray;
+  height: 30px;
+  width: 150px;
+  margin: 5px;
+}
+
+input {
+  height: 25px;
+  width: 200px;
+  margin: 1px;
+  border: none;
+  padding: 1px;
+}
+
 .App {
   text-align: center;
 }
@@ -21,6 +38,13 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {
